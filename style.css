@@ -171,19 +171,23 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 2rem;
-    padding-bottom: 1.5rem;
-    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
     position: sticky;
-    top: 0;
+    top: -1.5rem;
     background-color: var(--page-background-color);
     
     margin-inline: calc((100% - 100vw) / 2);
     padding-inline: calc((100vw - 100%) / 2);
     z-index: 1;
   }
+
+  .header_sticked {
+    background-color: var(--sticky-header-background-color);
+  }
   
   .header__logo {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 700;
   }
   
@@ -222,7 +226,7 @@
     display: block;
   }
   }
-
+/* 
   .header {
     animation: header auto linear;
     animation-timeline: scroll();
@@ -231,7 +235,6 @@
   @keyframes header {
     0% {
       background-color: var(--page-background-color);
-      /* scale: 0; */
     }
     .99% {
         background-color: var(--page-background-color);
@@ -240,11 +243,9 @@
         background-color: var(--sticky-header-background-color);
     }
     100% {
-        /* background-color: red; */
         background-color: var(--sticky-header-background-color);
-        /* scale: 1; */
     }
-  }
+  } */
 
 
 
