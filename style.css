@@ -1,0 +1,254 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  :root {
+    --page-background-color: #0a0a0a;
+    --sticky-header-background-color: hsl(0, 0%, 10%);
+    --nav-card-background-color: #171717;
+    --content-max-width: 80rem;
+    --border-radius-m: 1rem;
+    
+    --font-size-subtitle: 1.125rem;
+    --font-size-ui: 0.9rem;
+    
+    --font-weight-bold: 700;
+    
+    --content-padding-inline-l: 4rem;
+    --content-padding-inline-m: 2rem;
+    --content-padding-inline-s: .75rem;
+    
+  }
+  
+  html {
+    font-family: system-ui;
+    color-scheme: dark;
+    background-color: var(--page-background-color);
+  }
+  
+  body {
+      width: min(var(--content-max-width), 100vw - var(--content-padding-inline-l) * 2);
+    margin-inline: auto;
+  }
+  
+  @media (max-width: 60rem) {
+    body {
+      width: min(var(--content-max-width), 100vw - var(--content-padding-inline-m) * 2);
+  }
+  }
+  
+  @media (max-width: 30rem) {
+    body {
+      width: min(var(--content-max-width), 100vw - var(--content-padding-inline-s) * 2);
+  }
+  }
+  
+  /* ———————————————————————————————————————————— */
+  
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1.5fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "service service compare qa"
+      "accessoires tuning tuning qa";
+    gap: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .main-grid {
+      grid-template-columns: 1.5fr 1fr 1.5fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      
+    grid-template-areas:
+      "service service compare"
+      "tuning qa qa"
+      "accessoires qa qa";
+    }
+  }
+  
+  @media (max-width: 40rem) {
+    .main-grid {
+      grid-template-columns: 1fr 1.5fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      
+    grid-template-areas:
+      "service service "
+      "tuning tuning"
+      "accessoires qa"
+      "compare qa";
+    }
+  }
+  
+  @media (max-width: 30rem) {
+    .main-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 3fr;
+      
+    grid-template-areas:
+      "service service "
+      "tuning tuning"
+      "accessoires compare"
+      "qa qa";
+    }
+  }
+  
+  
+  .nav-card {
+    background-color: var(--nav-card-background-color);
+    padding: 1rem;
+    border-radius: var(--border-radius-m);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+  }
+  
+  .nav-card:hover:not(:active),
+  .nav-card:focus:not(:active){
+    filter: brightness(1.25);
+  }
+  
+  
+  .nav-card_square {
+    aspect-ratio: 1;
+      background-size: contain;
+    background-position: bottom;
+  }
+  
+  .nav-card__title {
+    font-size: var(--font-size-subtitle);
+    font-weight: var(--font-weight-bold);
+  }
+  
+  .nav-card_type_services {
+    grid-area: service;
+    background-image: url(https://synchronizer.github.io/kodiaq/images/service-bg.webp);
+  }
+  
+  .nav-card_type_compare {
+    grid-area: compare;
+    background-image: url(https://synchronizer.github.io/kodiaq/images/compare-bg.webp);
+  }
+  
+  .nav-card_type_qa {
+    grid-area: qa;
+  }
+  
+  .nav-card_type_accessoires {
+    grid-area: accessoires;
+    background-image: url(https://synchronizer.github.io/kodiaq/images/accessoires-bg.webp);
+  }
+  
+  
+  
+  
+  .nav-card_type_tuning {
+    grid-area: tuning;
+  /*   aspect-ratio: 2; */
+    background-image: url(https://synchronizer.github.io/kodiaq/images/tuning-bg.webp);
+  }
+  
+
+  
+  
+  
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    opacity: .33;
+    padding-block: 3rem;
+    margin-top: 6rem;
+    border-top: 1px solid currentcolor;
+  }
+
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: sticky;
+    top: 0;
+    background-color: var(--page-background-color);
+    
+    margin-inline: calc((100% - 100vw) / 2);
+    padding-inline: calc((100vw - 100%) / 2);
+    z-index: 1;
+  }
+  
+  .header__logo {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  .header__logo::after {
+  content: "Для китайского рынка";
+    font-size: 0.5em;
+    font-weight: normal;
+    display: block;
+    opacity: .5;
+  }
+  
+  .nav-menu__group {
+    display: flex;
+    gap: 1.5rem;
+    font-size: var(--font-size-ui);
+  }
+  
+  .nav-menu__item {
+    color: currentColor;
+    text-decoration: none;
+  }
+  
+  .nav-menu__burger {
+    display: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url(https://synchronizer.github.io/kodiaq/icons/solar_hamburger-menu-linear.svg);
+    background-size: cover;
+  }
+  
+  @media (max-width: 48rem) {
+    .nav-menu__group {
+      display: none;
+    }
+    .nav-menu__burger {
+    display: block;
+  }
+  }
+
+  .header {
+    animation: header auto linear;
+    animation-timeline: scroll();
+  }
+
+  @keyframes header {
+    0% {
+      background-color: var(--page-background-color);
+      /* scale: 0; */
+    }
+    .99% {
+        background-color: var(--page-background-color);
+    }
+    1% {
+        background-color: var(--sticky-header-background-color);
+    }
+    100% {
+        /* background-color: red; */
+        background-color: var(--sticky-header-background-color);
+        /* scale: 1; */
+    }
+  }
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
