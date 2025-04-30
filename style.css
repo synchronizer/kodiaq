@@ -1,161 +1,168 @@
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-  }
-  
-  :root {
-    --page-background-color: #0a0a0a;
-    --sticky-header-background-color: hsl(0, 0%, 10%);
-    --nav-card-background-color: #171717;
-    --content-max-width: 80rem;
-    --border-radius-m: 1rem;
-    
-    --font-size-subtitle: 1.125rem;
-    --font-size-ui: 0.9rem;
-    
-    --font-weight-bold: 700;
-    
-    --content-padding-inline-l: 4rem;
-    --content-padding-inline-m: 2rem;
-    --content-padding-inline-s: .75rem;
-    
-  }
-  
-  html {
-    font-family: system-ui;
-    color-scheme: dark;
-    background-color: var(--page-background-color);
-  }
-  
+html {
+  font-family: system-ui;
+  color-scheme: dark;
+  background-color: var(--page-background-color);
+}
+
+body {
+  width: min(var(--content-max-width), 100vw - var(--content-padding-inline-l) * 2);
+  margin-inline: auto;
+}
+
+@media (max-width: 60rem) {
   body {
-      width: min(var(--content-max-width), 100vw - var(--content-padding-inline-l) * 2);
-    margin-inline: auto;
+    width: min(var(--content-max-width), 100vw - var(--content-padding-inline-m) * 2);
   }
-  
-  @media (max-width: 60rem) {
-    body {
-      width: min(var(--content-max-width), 100vw - var(--content-padding-inline-m) * 2);
+}
+
+@media (max-width: 30rem) {
+  body {
+    width: min(var(--content-max-width), 100vw - var(--content-padding-inline-s) * 2);
   }
-  }
-  
-  @media (max-width: 30rem) {
-    body {
-      width: min(var(--content-max-width), 100vw - var(--content-padding-inline-s) * 2);
-  }
-  }
-  
-  /* ———————————————————————————————————————————— */
-  
-  .main-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1.5fr;
-    grid-template-rows: 1fr 1fr;
+}
+
+/* ———————————————————————————————————————————— */
+
+.navigation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.5fr;
+  grid-template-rows: auto 1fr 1fr;
+  grid-template-areas:
+    "search search search search"
+    "service service compare qa"
+    "accessoires tuning tuning qa";
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .navigation-grid {
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    grid-template-rows: auto 1fr 1fr 1fr;
+
     grid-template-areas:
-      "service service compare qa"
-      "accessoires tuning tuning qa";
-    gap: 1rem;
-  }
-  
-  @media (max-width: 768px) {
-    .main-grid {
-      grid-template-columns: 1.5fr 1fr 1.5fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      
-    grid-template-areas:
+      "search search search"
       "service service compare"
       "tuning qa qa"
       "accessoires qa qa";
-    }
   }
-  
-  @media (max-width: 40rem) {
-    .main-grid {
-      grid-template-columns: 1fr 1.5fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr;
-      
+}
+
+@media (max-width: 40rem) {
+  .navigation-grid {
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: auto 1fr 1fr 1fr 1fr;
+
     grid-template-areas:
+      "search search"
       "service service "
       "tuning tuning"
       "accessoires qa"
       "compare qa";
-    }
   }
-  
-  @media (max-width: 30rem) {
-    .main-grid {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 3fr;
-      
+}
+
+@media (max-width: 30rem) {
+  .navigation-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr 1fr 3fr;
+
     grid-template-areas:
+      "search search"
       "service service "
       "tuning tuning"
       "accessoires compare"
       "qa qa";
-    }
   }
-  
-  
-  .nav-card {
-    background-color: var(--nav-card-background-color);
-    padding: 1rem;
-    border-radius: var(--border-radius-m);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
-  }
-  
-  .nav-card:hover:not(:active),
-  .nav-card:focus:not(:active){
-    filter: brightness(1.25);
-  }
-  
-  
-  .nav-card_square {
-    aspect-ratio: 1;
-      background-size: contain;
-    background-position: bottom;
-  }
-  
-  .nav-card__title {
-    font-size: var(--font-size-subtitle);
-    font-weight: var(--font-weight-bold);
-  }
-  
-  .nav-card_type_services {
-    grid-area: service;
-    background-image: url(https://synchronizer.github.io/kodiaq/images/service-bg.webp);
-  }
-  
-  .nav-card_type_compare {
-    grid-area: compare;
-    background-image: url(https://synchronizer.github.io/kodiaq/images/compare-bg.webp);
-  }
-  
-  .nav-card_type_qa {
-    grid-area: qa;
-  }
-  
-  .nav-card_type_accessoires {
-    grid-area: accessoires;
-    background-image: url(https://synchronizer.github.io/kodiaq/images/accessoires-bg.webp);
-  }
-  
-  
-  
-  
-  .nav-card_type_tuning {
-    grid-area: tuning;
+}
+
+
+.navigation-grid__item {
+  background-color: var(--gray-1-background-color);
+  padding: 1rem;
+  border-radius: var(--border-radius-m);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.navigation-grid__item:hover:not(:active),
+.navigation-grid__item:focus:not(:active) {
+  filter: brightness(1.25);
+}
+
+
+.navigation-grid__item_square {
+  aspect-ratio: 1;
+  background-size: contain;
+  background-position: bottom;
+}
+
+.navigation-grid__item__title {
+  font-size: var(--font-size-subtitle);
+  font-weight: var(--font-weight-bold);
+}
+
+.navigation-grid__item__content {
+  margin-top: 1rem;
+  position: relative;
+}
+
+
+.navigation-grid__item_type_services {
+  grid-area: service;
+  background-image: url(https://synchronizer.github.io/kodiaq/images/service-bg.webp);
+}
+
+.navigation-grid__item_type_compare {
+  grid-area: compare;
+  background-image: url(https://synchronizer.github.io/kodiaq/images/compare-bg.webp);
+}
+
+.navigation-grid__item_type_qa {
+  grid-area: qa;
+}
+
+.navigation-grid__item_type_accessoires {
+  grid-area: accessoires;
+  background-image: url(https://synchronizer.github.io/kodiaq/images/accessoires-bg.webp);
+}
+
+
+
+
+.navigation-grid__item_type_tuning {
+  grid-area: tuning;
   /*   aspect-ratio: 2; */
-    background-image: url(https://synchronizer.github.io/kodiaq/images/tuning-bg.webp);
-  }
-  
+  background-image: url(https://synchronizer.github.io/kodiaq/images/tuning-bg.webp);
+}
+.qa {
+    font-size: var(--font-size-xs);
+    color: var(--light-text-color);
+    position: absolute;
+}
 
-  
-  
-  
+.qa__content {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;  
+}
 
+.qa__question,
+.qa__answer {
+    background-color: var(--gray-2-background-color);
+    padding: 0.75rem;
+    border-radius: var(--border-radius-s);
+}
+
+.qa__question {
+    margin-right: 10%;
+}
+.qa__answer {
+    margin-left: 10%;
+}
 .footer {
     display: flex;
     justify-content: space-between;
@@ -163,7 +170,7 @@
     padding-block: 3rem;
     margin-top: 6rem;
     border-top: 1px solid currentcolor;
-  }
+}
 
   
   .header {
@@ -253,3 +260,60 @@
   box-sizing: border-box;
   margin: 0;
 }
+
+.search {
+    display: flex;
+    grid-area: search;
+    border-radius: var(--border-radius-m);
+    align-items: stretch;
+    height: 4rem;
+    background-color: var(--gray-1-background-color);
+    position: relative;
+
+}
+
+.search__input   {
+    flex-grow: 1;
+    border: none;
+    background-color: transparent;
+    border-radius: var(--border-radius-m);
+    padding-inline: 1.5rem;
+    font-size: 1rem;
+}
+
+.search__button {
+    position: absolute;
+    top: .5rem;
+    bottom: .5rem;
+    right: .5rem;
+    aspect-ratio: 1;
+}
+
+:root {
+    --page-background-color: #0a0a0a;
+    --sticky-header-background-color: hsl(0, 0%, 10%);
+    --gray-1-background-color: #171717;
+    --gray-2-background-color: #262626;
+    --content-max-width: 80rem;
+    --border-radius-m: 1rem;
+    --border-radius-s: .5rem;
+    
+    --font-size-xl: 3rem;
+    --font-size-l: 2rem;
+    --font-size-m: 1.15rem;
+    --font-size-s: 1rem;
+    --font-size-xs: .82rem;
+
+    --font-size-subtitle: 1.125rem;
+    --font-size-text: 1rem;
+    --font-size-ui: 0.9rem;
+
+    --light-text-color: hsl(0, 0%, 50%);
+    
+    --font-weight-bold: 700;
+    
+    --content-padding-inline-l: 4rem;
+    --content-padding-inline-m: 2rem;
+    --content-padding-inline-s: .75rem;
+    
+  }
