@@ -225,7 +225,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: .5rem;
-    animation: qa__content 15s linear infinite alternate both;  
+    animation: qa__content 30s linear infinite alternate both;  
 }
 
 .qa-preview:hover .qa-preview__content{
