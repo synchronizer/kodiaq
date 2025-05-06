@@ -90,12 +90,13 @@ body {
 @media (max-width: 768px) {
   .navigation-grid {
     grid-template-columns: 1.5fr 1fr 1.5fr;
-    grid-template-rows: auto 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr 1fr 1fr;
 
     grid-template-areas:
       "search search search"
       "service service compare"
-      "tuning qa qa"
+      "coding tuning tuning"
+      "manuals qa qa"
       "accessoires qa qa";
   }
 }
@@ -199,8 +200,8 @@ body {
 .navigation-grid__item_type_coding {
   grid-area: coding;
   background-image: url(https://synchronizer.github.io/kodiaq/images/coding-bg.svg);
-  background-size: calc(100% - 2rem);
-  background-position: bottom 1rem center;
+  background-size: auto 70%;
+  background-position: bottom left;
 }
 .qa-preview {
     font-size: var(--font-size-xs);
@@ -2391,7 +2392,7 @@ a[href] {
 
     --content-width-s: 21.25rem;
     --content-width-m: 44rem;
-    --content-width-l: 67.5rem;
+    --content-width-l: 80rem;
     --content-width-xl: 92rem;
     --page-width: min(100vw);
     --page-padding-inline: 1.25rem;
@@ -2411,11 +2412,10 @@ a[href] {
 @supports (background-color: light-dark(white,black)) {
     
     :root {
-        --grey-bg: light-dark(hsl(240deg 15% 95%), hsl(240deg 5% 15%));
+        --grey-bg: light-dark(hsl(240deg 15% 95%), hsl(240deg 5% 9%));
         --black-bg: hsl(0deg 0% 14%);
         --button-bg: hsla(240, 13%, 60%, 0.3);
         --button_appearance_dark-bg: hsla(0, 0%, 0%, 0.75);
-        /* --input-bg: hsl(240deg 13% 100% / 0.25); */
         --light-text-color: light-dark(hsl(240deg 0% 0% / 60%), hsl(240deg 0% 100% / 60%));
         --border-color: hsl(240deg 5% 50% / 70%);
         --grey-text: light-dark(hsl(0deg 0% 52% / 90%), hsl(0deg 0% 52% / 92%));
@@ -2429,7 +2429,38 @@ a[href] {
     }
     
 }
+
+/* NEW */
+
 :root {
+    --page-background-color: #0a0a0a;
+    --sticky-header-background-color: hsl(0, 0%, 10%);
+    --gray-1-background-color: var(--grey-bg);
+    --gray-2-background-color: hsl(240deg 5% 15%);
+    --content-max-width: 80rem;
+    --border-radius-m: 1rem;
+    --border-radius-s: .5rem;
+    
+    --font-size-xl: 3rem;
+    --font-size-l: 2rem;
+    --font-size-m: 1.15rem;
+    --font-size-s: 1rem;
+    --font-size-xs: .82rem;
+
+    --font-size-subtitle: 1.125rem;
+    --font-size-text: 1rem;
+    --font-size-ui: 0.9rem;
+
+    --light-text-color: hsl(0, 0%, 50%);
+    
+    --font-weight-bold: 700;
+    
+    --content-padding-inline-l: 4rem;
+    --content-padding-inline-m: 2rem;
+    --content-padding-inline-s: .75rem;
+    
+  }
+/* :root {
     --page-background-color: #0a0a0a;
     --sticky-header-background-color: hsl(0, 0%, 10%);
     --gray-1-background-color: #171717;
@@ -2456,7 +2487,7 @@ a[href] {
     --content-padding-inline-m: 2rem;
     --content-padding-inline-s: .75rem;
     
-  }
+  } */
 .wide {
     margin-inline: max(
         (100% - var(--content-width-l)) / 2,
