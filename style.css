@@ -82,28 +82,30 @@ body:has(#bed-button:checked) #bed-content {
 @media (max-width: 40rem) {
   .navigation-grid {
     grid-template-columns: 1fr 1.5fr;
-    grid-template-rows: auto 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr 1fr 1fr 1fr;
 
     grid-template-areas:
       "search search"
       "service service "
       "tuning tuning"
       "accessoires qa"
-      "compare qa";
+      "compare qa"
+      "coding manuals";
   }
 }
 
 @media (max-width: 30rem) {
   .navigation-grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr 1fr 1fr 3fr;
+    grid-template-rows: auto 1fr 1fr 1fr 3fr 1fr;
 
     grid-template-areas:
       "search search"
       "service service "
-      "tuning tuning"
-      "accessoires compare"
-      "qa qa";
+      "tuning accessoires"
+      "compare compare"
+      "qa qa"
+      "coding manuals";
   }
 }
 
@@ -111,12 +113,14 @@ body:has(#bed-button:checked) #bed-content {
 .navigation-grid__item {
   background-color: var(--grey-bg);
   padding: 1rem;
-  /* border-radius: var(--bd-radius-M); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   cursor: pointer;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
   
 }
 
@@ -135,12 +139,12 @@ body:has(#bed-button:checked) #bed-content {
 .navigation-grid__item__title {
   font-size: var(--font-size-title);
   line-height: var(--line-height-title);
-  font-weight: 100;
+  font-weight: var(--font-weight-title);
 }
 
 .navigation-grid__item__content {
   margin-top: 1rem;
-  position: relative;
+  flex-grow: 1;
 }
 
 
@@ -182,31 +186,26 @@ body:has(#bed-button:checked) #bed-content {
   background-size: auto 70%;
   background-position: bottom left;
 }
+*:has(.qa-preview) {
+    position: relative;
+}
 .qa-preview {
     font-size: var(--font-size-caption);
     line-height: var(--line-height-caption);
     color: var(--grey-text);
-    position: absolute;
-    overflow: hidden;
     isolation: isolate;
+    height: 100%;
+    mask: linear-gradient(transparent, white 3rem, white calc(100% - 3rem),transparent);
 }
 
-.qa-preview::before {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    height: 3rem;
-    background-image: linear-gradient(var(--grey-bg), transparent);
-    z-index: 1;
-}
+
 
 .qa-preview__content {
     display: flex;
     flex-direction: column;
     gap: .5rem;
-    animation: qa__content 30s linear infinite alternate both;  
+    animation: qa__content 30s linear infinite alternate both; 
+    position: absolute;
 }
 
 .qa-preview:hover .qa-preview__content{
@@ -1377,13 +1376,9 @@ p {
 
 .header_sticked {
   background-color: var(--grey-bg);
-  padding-inline: 2rem;
+  padding-inline: 1rem;
 }
 
-.header__logo {
-  font-size: 1.6rem;
-  font-weight: 700;
-}
 
 .header__logo::after {
   content: "Для китайского рынка";
@@ -1407,10 +1402,7 @@ p {
 
 .nav-menu__burger {
   display: none;
-  /* width: 1.5rem;
-  height: 1.5rem;
-  background-image: url(https://synchronizer.github.io/kodiaq/icons/solar_hamburger-menu-linear.svg);
-  background-size: cover; */
+
 }
 
 @media (max-width: 48rem) {
@@ -1421,6 +1413,10 @@ p {
   .nav-menu__burger {
     display: block;
   }
+}
+
+.header__logo {
+  width: 10rem;
 }
 .icon {
     display: inline-block;
@@ -2466,13 +2462,13 @@ html {
     --font-size-ui: 0.9rem;
     --font-size-button: var(--font-size-ui);
 
-    --font-weight-supertitle: 700;
-    --font-weight-title: 700;
-    --font-weight-subtitle: 700;
+    --font-weight-supertitle: 200;
+    --font-weight-title: 200;
+    --font-weight-subtitle: 400;
     --font-weight-text: 400;
-    --font-weight-lead: 300;
+    --font-weight-lead: 200;
     --font-weight-caption: 400;
-    --font-weight-button: 500;
+    --font-weight-button: 400;
 
     --line-height-supertitle: 3.3rem;
     --line-height-title: 2.4rem;
@@ -3218,6 +3214,7 @@ html {
     background-color: var(--grey-bg);
     padding: 1rem;
     overflow: hidden;
+    max-width: 15rem;
 }
 
 .product-preview__image {
@@ -3250,7 +3247,15 @@ html {
 .product-preview__controls,
 .product-preview__company {
     margin-top: .75rem;
+    display: flex;
 }
+
+.product-preview__controls > * {
+    flex-grow: 1;
+}
+
+
+
 .products-list {
     /* column-gap: 1.5rem; */
     /* row-gap: 4.5rem; */
