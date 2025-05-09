@@ -1619,14 +1619,14 @@ a[href] {
       scale: 1;
     }
   }
-.main {
+.main:not(.main_centered) {
   width: min(var(--content-width-m), 100% - var(--page-padding-inline) * 2);  
   margin-left: calc((100% - var(--content-width-xl)) / 2);
 }
 
 .main_centered {
-  margin-left: auto;
-  margin-right: auto;
+  width: min(var(--content-width-m), 100% - var(--page-padding-inline) * 2); 
+  margin-inline: auto;
 }
 
 .modal {
