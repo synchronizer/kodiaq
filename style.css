@@ -196,7 +196,6 @@ body:has(#bed-button:checked) #bed-content {
     isolation: isolate;
     height: 100%;
     mask: linear-gradient(transparent, white 3rem, white calc(100% - 3rem),transparent);
-    position: none;
 }
 
 
@@ -207,6 +206,7 @@ body:has(#bed-button:checked) #bed-content {
     gap: .5rem;
     animation: qa__content 30s linear infinite alternate both; 
     position: absolute;
+    pointer-events: none;
 }
 
 .qa-preview:hover .qa-preview__content{
