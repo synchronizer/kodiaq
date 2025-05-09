@@ -196,6 +196,7 @@ body:has(#bed-button:checked) #bed-content {
     isolation: isolate;
     height: 100%;
     mask: linear-gradient(transparent, white 3rem, white calc(100% - 3rem),transparent);
+    position: none;
 }
 
 
