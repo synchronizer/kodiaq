@@ -1639,6 +1639,7 @@ a[href] {
     max-height: 100%;
     padding: 0;
     background-color: var(--backdrop);
+    backdrop-filter: blur(.5rem);
 }
 
 .modal::backdrop {
@@ -1684,7 +1685,7 @@ a[href] {
 
 .modal__content {
     padding: 1.5rem;
-    background: var(--modal-bg);
+    background: var(--page-background-color);
     cursor: auto;
     overflow: hidden;
 }
@@ -2440,7 +2441,7 @@ html {
     --border-color: hsl(240deg 5% 50% / 70%);
     --grey-text: hsl(0deg 0% 52% / 92%);
     --grey-border: hsla(240, 6%, 57%, 0.7);
-    --backdrop: #000b;
+    --backdrop: hsla(0, 0%, 100%, 0.1);
     --color-link: hsl(220deg 100% 67%);
     --color-link-visited: hsl(270deg 100% 67%);
     --code-color: #F60;
@@ -2544,7 +2545,7 @@ html {
         --border-color: hsl(240deg 5% 50% / 70%);
         --grey-text: light-dark(hsl(0deg 0% 52% / 90%), hsl(0deg 0% 52% / 92%));
         --grey-border: hsla(240, 6%, 57%, 0.7);
-        --backdrop: #000b;
+        --backdrop: light-dark(hsla(0, 0%, 0%, 0.5), hsla(0, 0%, 100%, 0.1));
         --color-link: light-dark(hsl(220deg 100% 50%), hsl(220deg 100% 67%));
         --color-link-visited: light-dark(hsl(270deg 100% 50%), hsl(270deg 100% 67%));
         --code-color: #F60;
