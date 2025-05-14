@@ -386,6 +386,19 @@ Array.from(document.querySelectorAll('.header')).forEach(header => {
             header.classList.remove('header_sticked')
         }
     })
+
+    // Search
+    const searchInput = header.querySelector('#search-input'),
+          searchButton = header.querySelector('#search-button');
+
+    searchInput.addEventListener('input', () => {
+        searchButton.setAttribute('href', `/serp?s=${searchInput.value}`)
+        if (!searchInput.value) {
+            searchButton.setAttribute('disabled', '')
+        } else {
+            searchButton.removeAttribute('disabled')
+        };
+    })
 })
 Array.from(document.querySelectorAll('.image-slider')).forEach(imageSlider => {
     const   left = imageSlider.querySelector('.image-slider__left'),

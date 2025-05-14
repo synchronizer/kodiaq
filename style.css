@@ -56,9 +56,8 @@ body:has(#bed-button:checked) #bed-content {
 .navigation-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1.5fr;
-  grid-template-rows: auto 1fr 1fr 1fr;
+  grid-template-rows:  1fr 1fr 1fr;
   grid-template-areas:
-    "search search search search"
     "service service compare qa"
     "accessoires manuals manuals qa"
     "tuning tuning coding coding";
@@ -68,10 +67,9 @@ body:has(#bed-button:checked) #bed-content {
 @media (max-width: 768px) {
   .navigation-grid {
     grid-template-columns: 1.5fr 1fr 1.5fr;
-    grid-template-rows: auto 1fr 1fr 1fr 1fr;
+    grid-template-rows:  1fr 1fr 1fr 1fr;
 
     grid-template-areas:
-      "search search search"
       "service service compare"
       "coding tuning tuning"
       "manuals qa qa"
@@ -82,10 +80,9 @@ body:has(#bed-button:checked) #bed-content {
 @media (max-width: 40rem) {
   .navigation-grid {
     grid-template-columns: 1fr 1.5fr;
-    grid-template-rows: auto 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:  1fr 1fr 1fr 1fr 1fr;
 
     grid-template-areas:
-      "search search"
       "service service "
       "tuning tuning"
       "accessoires qa"
@@ -97,10 +94,9 @@ body:has(#bed-button:checked) #bed-content {
 @media (max-width: 30rem) {
   .navigation-grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr 1fr 1fr 3fr 1fr;
+    grid-template-rows:  1fr 1fr 1fr 3fr 1fr;
 
     grid-template-areas:
-      "search search"
       "service service "
       "tuning accessoires"
       "compare compare"
@@ -1234,6 +1230,7 @@ p {
 }
 .header {
   display: flex;
+  gap: 4rem;
   justify-content: space-between;
   align-items: center;
   padding-top: 2rem;
@@ -1279,7 +1276,7 @@ p {
 
 }
 
-@media (max-width: 80rem) {
+@media (max-width: 196rem) {
   .header__nav-menu-desktop {
     display: none;
   }
@@ -1292,6 +1289,20 @@ p {
 .header__logo {
   width: 14rem;
 }
+
+.header__search {
+  display: flex;
+  gap: 1rem;
+  flex-grow: 1;
+  justify-content: stretch;
+  max-width: 30rem;
+}
+
+.header__search :first-child {
+  flex-grow: 1;
+}
+
+
 .icon {
     display: inline-block;
     width: 1.5rem;
