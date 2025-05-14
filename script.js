@@ -392,7 +392,7 @@ Array.from(document.querySelectorAll('.header')).forEach(header => {
           searchButton = header.querySelector('#search-button');
 
     searchInput.addEventListener('input', () => {
-        searchButton.setAttribute('href', `/serp?s=${searchInput.value}`)
+        searchButton.setAttribute('href', `serp/?s=${searchInput.value}`)
         if (!searchInput.value) {
             searchButton.setAttribute('disabled', '')
         } else {
