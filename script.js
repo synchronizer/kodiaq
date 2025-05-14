@@ -388,17 +388,17 @@ Array.from(document.querySelectorAll('.header')).forEach(header => {
     })
 
     // Search
-    const search = header.querySelector('#search'),
-          searchButton = header.querySelector('#search-button');
+    // const search = header.querySelector('#search'),
+    //       searchButton = header.querySelector('#search-button');
 
-    searchInput.addEventListener('input', () => {
-        // searchButton.setAttribute('href', `serp/?s=${searchInput.value}`)
-        // if (!searchInput.value) {
-        //     searchButton.setAttribute('disabled', '')
-        // } else {
-        //     searchButton.removeAttribute('disabled')
-        // };
-    })
+    // searchInput.addEventListener('input', () => {
+    //     // searchButton.setAttribute('href', `serp/?s=${searchInput.value}`)
+    //     // if (!searchInput.value) {
+    //     //     searchButton.setAttribute('disabled', '')
+    //     // } else {
+    //     //     searchButton.removeAttribute('disabled')
+    //     // };
+    // })
 })
 Array.from(document.querySelectorAll('.image-slider')).forEach(imageSlider => {
     const   left = imageSlider.querySelector('.image-slider__left'),
