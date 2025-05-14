@@ -1242,9 +1242,8 @@ p {
   margin-inline: auto;
   z-index: 1;
 
-  width: min(
-    calc(var(--content-width-xl) + 1rem),
-    calc(100% - (var(--page-padding-inline) * 2)) + 1rem);
+  width: min(calc(var(--content-width-xl) + 1rem),
+      calc(100% - (var(--page-padding-inline) * 2)) + 1rem);
   margin-inline: auto;
   padding-inline: .75rem;
 
@@ -1286,9 +1285,6 @@ p {
   }
 }
 
-.header__logo {
-  width: 14rem;
-}
 
 .header__search {
   display: flex;
@@ -1302,7 +1298,19 @@ p {
   flex-grow: 1;
 }
 
+.header__logo-touch {
+  display: none;
+}
 
+@media (max-width: 48rem) {
+  .header__logo-desktop {
+    display: none;
+  }
+
+  .header__logo-touch {
+    display: block;
+  }
+}
 .icon {
     display: inline-block;
     width: 1.5rem;
