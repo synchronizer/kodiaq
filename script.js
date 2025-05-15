@@ -474,6 +474,11 @@ Array.from(document.querySelectorAll('.search-request')).forEach(searchRequest =
     const params = new URLSearchParams(window.location.search);
     searchRequest.textContent = params.get('search')
 })
+
+Array.from(document.querySelectorAll('#search')).forEach(search => {
+    const params = new URLSearchParams(window.location.search);
+    search.value = params.get('search')
+})
 Array.from(document.querySelectorAll(".slider-new")).forEach((slider) => {
 
   slider.style.setProperty('--__duration', slider.getAttribute('data-duration') + 'ms');
