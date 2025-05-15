@@ -2323,7 +2323,7 @@ html {
     --grey-2-bg: hsl(240deg 5% 15%);
     --black-bg: hsl(0deg 0% 14%);
     --button-bg: hsla(240, 13%, 60%, 0.3);
-    --input-bg: Canvas;
+    --input-bg: hsla(240, 13%, 60%, 0.2);
     /* --input-bg: hsl(240deg 13% 100% / 0.25); */
     --button_appearance_dark-bg: hsla(0, 0%, 0%, 0.75);
     --light-text-color: hsl(240deg 0% 100% / 60%);
@@ -2426,8 +2426,8 @@ html {
         --grey-bg: light-dark(hsl(240deg 15% 95%), hsl(240deg 5% 9%));
         --grey-2-bg: light-dark(hsl(240deg 15% 90%), hsl(240deg 5% 15%));
         --black-bg: hsl(0deg 0% 14%);
-        --button-bg: hsla(240, 13%, 60%, 0.3);
-        --input-bg: Canvas;
+        /* --button-bg: hsla(240, 13%, 60%, 0.3); */
+        /* --input-bg: hsla(240, 13%, 60%, 0.3); */
         /* --input-bg: hsl(240deg 13% 100% / 0.25); */
         --button_appearance_dark-bg: hsla(0, 0%, 0%, 0.75);
         --light-text-color: light-dark(hsl(240deg 0% 0% / 60%), hsl(240deg 0% 100% / 60%));
@@ -2446,34 +2446,6 @@ html {
 }
 
 /* NEW */
-/* :root {
-    --page-background-color: #0a0a0a;
-    --sticky-header-background-color: hsl(0, 0%, 10%);
-    --gray-1-background-color: #171717;
-    --gray-2-background-color: #262626;
-    --content-max-width: 80rem;
-    --border-radius-m: 1rem;
-    --border-radius-s: .5rem;
-    
-    --font-size-xl: 3rem;
-    --font-size-l: 2rem;
-    --font-size-m: 1.15rem;
-    --font-size-s: 1rem;
-    --font-size-xs: .82rem;
-
-    --font-size-subtitle: 1.125rem;
-    --font-size-text: 1rem;
-    --font-size-ui: 0.9rem;
-
-    --light-text-color: hsl(0, 0%, 50%);
-    
-    --font-weight-bold: 700;
-    
-    --content-padding-inline-l: 4rem;
-    --content-padding-inline-m: 2rem;
-    --content-padding-inline-s: .75rem;
-    
-  } */
 /* Center */
 .wide_size_l {
   margin-inline: max((100% - var(--content-width-l)) / 2,
@@ -3611,7 +3583,8 @@ a.button {
 
 .input__input {
   height: var(--control-size-M);
-  border: 1px solid var(--grey-border);
+  /* border: 1px solid var(--grey-border); */
+  border: none;
   box-sizing: border-box;
   padding-inline: calc(var(--control-size-L) * .2);
   font: var(--font-text);
@@ -3708,7 +3681,7 @@ a.button {
 
 .textarea__textarea {
   min-height: var(--control-size-L);
-  border: 1px solid var(--grey-border);
+  border: none;
   box-sizing: border-box;
   padding: 1.5em calc(var(--control-size-L) * .2) 0;
   font: var(--font-text);

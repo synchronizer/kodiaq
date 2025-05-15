@@ -387,18 +387,25 @@ Array.from(document.querySelectorAll('.header')).forEach(header => {
         }
     })
 
-    // Search
-    // const search = header.querySelector('#search'),
-    //       searchButton = header.querySelector('#search-button');
+    const search = header.querySelector('#search'),
+        searchButton = header.querySelector('#search-button'),
+        searchParams = new URLSearchParams(window.location.search).get('search');
 
-    // searchInput.addEventListener('input', () => {
-    //     // searchButton.setAttribute('href', `serp/?s=${searchInput.value}`)
-    //     // if (!searchInput.value) {
-    //     //     searchButton.setAttribute('disabled', '')
-    //     // } else {
-    //     //     searchButton.removeAttribute('disabled')
-    //     // };
-    // })
+        search.value = searchParams;
+
+        const inputCheck = () => {
+            if (!search.value || searchParams == search.value) {
+                searchButton.setAttribute('disabled', '')
+            } else {
+                searchButton.removeAttribute('disabled')
+            };
+        };
+
+    inputCheck();
+
+    search.addEventListener('input', inputCheck)
+
+
 })
 Array.from(document.querySelectorAll('.image-slider')).forEach(imageSlider => {
     const   left = imageSlider.querySelector('.image-slider__left'),
@@ -475,10 +482,7 @@ Array.from(document.querySelectorAll('.search-request')).forEach(searchRequest =
     searchRequest.textContent = params.get('search')
 })
 
-Array.from(document.querySelectorAll('#search')).forEach(search => {
-    const params = new URLSearchParams(window.location.search);
-    search.value = params.get('search')
-})
+
 Array.from(document.querySelectorAll(".slider-new")).forEach((slider) => {
 
   slider.style.setProperty('--__duration', slider.getAttribute('data-duration') + 'ms');
