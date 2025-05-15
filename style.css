@@ -1778,6 +1778,9 @@ html {
 .qa + .qa {
     margin-top: 0.75rem;
 }
+.search-request {
+    color: var(--grey-text);
+}
 .search {
     display: flex;
     grid-area: search;
